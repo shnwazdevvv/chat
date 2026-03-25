@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: telegram-group-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BOT_TOKEN
+        sync: false
+      - key: BOT_USERNAME
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: OWNER_USERNAME
+        sync: false
+      - key: SUPPORT_USERNAME
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: mistralai/mistral-7b-instruct
+      - key: MONGODB_URI
+        sync: false
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: PORT
+        value: "3000"
